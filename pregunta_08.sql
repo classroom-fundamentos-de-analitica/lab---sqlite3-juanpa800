@@ -41,3 +41,11 @@
 --
 --  >>> Escriba su codigo a partir de este punto <<<
 --
+
+SELECT Anio as "strftime('%Y', c23)", prom as "avg(c21)"
+FROM (
+    SELECT strftime('%Y', c23) as 'Anio', avg(c21) as "prom"
+    FROM tbl2 
+    GROUP BY strftime('%Y', c23)
+)
+ORDER BY 'Anio'
